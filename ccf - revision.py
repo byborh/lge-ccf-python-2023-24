@@ -146,8 +146,64 @@ def pion(M, lig, col):
 	return M
 
 
-afficher(pion(matriceCarre(), 5, 5))
+mot = "enzo et lysandre sont ensemble."
 
+def voyelle(mot):
+	cpt = 0
+	v = ["a","e", "y", "u", "i", "o"]
+	for i in range(len(mot)):
+		if mot[i] in v:
+			cpt = cpt + 1
+	return cpt
+
+def chiffrement(mot):
+	alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+	motChiffre = ""
+	mot = mot.lower()
+	for i in range(len(mot)):
+		for j in range(len(alphabet)):
+			if(mot[i] == alphabet[j]):
+				motChiffre = motChiffre + alphabet[j]
+	return motChiffre
+
+def chiffrementEnzo(mot):
+	alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	chiffre = []
+	for lettre in mot.upper():
+		if(lettre in alphabet):
+			chiffre.append(alphabet.index(lettre))
+	return chiffre
+
+def inverse(liste):
+	nouvelle_liste = []
+	for i in liste:
+		nouvelle_liste = [i] + nouvelle_liste
+	return nouvelle_liste
+
+def polindrome(mot):
+	for i in range(len(mot)):
+		if mot[i] == mot[i-1]:
+			if mot[i+1] == mot[i-2]:
+				return True
+	return False
+
+print(polindrome("lalal"))
+print(inverse([4, 13, 25, 14, 4, 19]))
+#print(chiffrementEnzo(mot))
+#print(voyelle(mot))
+
+
+
+
+
+
+
+
+
+
+
+
+#afficher(pion(matriceCarre(), 5, 5))
 #print(floutage(matriceCarreAleatoire()))
 #afficher(matriceCarreAleatoire())
 #print('devient :')
